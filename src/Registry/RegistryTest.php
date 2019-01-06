@@ -4,8 +4,19 @@ namespace Duc\Registry;
 
 use PHPUnit\Framework\TestCase;
 
-class ObjectPoolTest extends TestCase
+class RegistryTest extends TestCase
 {
+    protected function setUp(
+    )/* The :void return type declaration that should be here would cause a BC issue */
+    {
+        parent::setUp();
+        Registry::clearInstance();
+
+        /** @var SingletonRegistry $registry */
+        $registry = SingletonRegistry::getInstance();
+        $registry->clearInstance();
+    }
+
     /** @test */
     public function registry_test()
     {
@@ -23,8 +34,10 @@ class ObjectPoolTest extends TestCase
     /** @test */
     public function test_duc()
     {
-        // 会造成测试中引入全局的状态
-        $this->assertEquals(3, count(Registry::getInstance()));
+        // 会造成测试中引入全局的状态，测试时必须在 setUp 中清空一下注册树
+//        $this->assertEquals(3, count(Registry::getInstance()));
+
+        $this->assertEquals(0, count(Registry::getInstance()));
     }
 
     /** @test */
@@ -63,5 +76,14 @@ class ObjectPoolTest extends TestCase
         $this->expectExceptionMessage('duc not exists');
 
         $registry->get('duc');
+    }
+
+    /** @test */
+    function duc_test()
+    {
+        /** @var SingletonRegistry $registry */
+        $registry = SingletonRegistry::getInstance();
+
+        $this->assertEquals(0, count($registry->getPool()));
     }
 }

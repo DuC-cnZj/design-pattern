@@ -2,6 +2,13 @@
 
 namespace Duc\Registry;
 
+/**
+ * 单列保证全局只有一个注册树
+ *
+ * Class SingletonRegistry
+ *
+ * @package Duc\Registry
+ */
 class SingletonRegistry
 {
     public static $instance;
@@ -35,6 +42,11 @@ class SingletonRegistry
     public function getPool()
     {
         return $this->pool;
+    }
+
+    public function clearInstance()
+    {
+        $this->pool = [];
     }
 
     private function __construct()
