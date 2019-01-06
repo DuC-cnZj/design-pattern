@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Duc\Pool;
+namespace Duc\Registry;
 
 
 class Customer implements UserImp

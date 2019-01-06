@@ -4,25 +4,34 @@
 namespace Duc\Pool;
 
 
+/**
+ * 对象池模式是一种提前准备了一组已经初始化了的对象『池』
+ * 对象池一般只存一种对象
+ *
+ * Class Pool
+ *
+ * @package Duc\Pool
+ */
 class Pool
 {
     protected $pool = [];
 
-    public function push($class, $obj)
+    public function push($obj)
     {
-        $this->pool[$class] = $obj;
+        $hash = spl_object_hash($obj);
+
+        $this->pool[$hash] = $obj;
     }
 
-    public function get($class)
+    public function get()
     {
-        if (isset($this->pool[$class])) {
-            return $this->pool[$class];
+        if (count($this->pool) > 0) {
+            return array_pop($this->pool);
+        } else {
+            $newWorker = new Worker(random_int(1, 10));
+
+            return $newWorker;
         }
-
-        $instance = new $class(random_int(1, 5));
-        $this->pool[$class] = $instance;
-
-        return $instance;
     }
 
     public function getInstance()

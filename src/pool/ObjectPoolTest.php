@@ -1,85 +1,43 @@
 <?php
 
-
 namespace Duc\Pool;
-
 
 use PHPUnit\Framework\TestCase;
 
 class ObjectPoolTest extends TestCase
 {
     /** @test */
-    function test_object_has_pool()
+    public function test_object_has_pool()
     {
         $pool = new Pool();
 
-        $pool->push(Worker::class, new Worker(1));
+        for ($i = 0 ; $i < 10; $i++) {
+            $pool->push(new Worker($i));
+        }
 
-        $this->assertInstanceOf(Worker::class, $pool->get(Worker::class));
+        $worker1 = $pool->get();
+        $worker2 = $pool->get();
+
+        $this->assertNotSame($worker1, $worker2);
+        $this->assertEquals(8, count($pool->getInstance()));
+
+        $pool->push($worker1);
+        $pool->push($worker2);
+
+        $this->assertEquals(10, count($pool->getInstance()));
     }
 
     /** @test */
-    function test_object_is_singleton()
+    public function test_can_get_same_instance_twice_when_disposing_it_first()
     {
         $pool = new Pool();
-
-        $worker = new Worker(1);
-
-        $pool->push(Worker::class, $worker);
-
-        $this->assertSame($worker, $pool->get(Worker::class));
-
-        $this->assertEquals(1, $pool->get(Worker::class)->id);
-    }
-
-    /** @test */
-    function test_object_is_same()
-    {
-        $pool = new Pool();
-
-        $workerOne = $pool->get(Worker::class);
-        $workerTwo = $pool->get(Worker::class);
-
-        $this->assertSame($workerOne, $workerTwo);
-    }
-
-    /** @test */
-    function it_only_has_one_same_object_in_pool()
-    {
-        $pool = new Pool();
-
-        $pool->push(Worker::class, new Worker(1));
-        $pool->push(Worker::class, new Worker(1));
-        $pool->push(Worker::class, new Worker(1));
-
+        $pool->push(new Worker(1));
         $this->assertEquals(1, count($pool->getInstance()));
-    }
 
-    /** @test */
-    function it_only_has_one_same_object_in_pool_two()
-    {
-        $pool = new Pool();
+        $worker1 = $pool->get();
+        $pool->push($worker1);
+        $worker2 = $pool->get();
 
-        $pool->push(Worker::class, new Worker(1));
-        $pool->push(Worker::class, new Worker(1));
-        $pool->push(Worker::class, new Worker(1));
-
-        $pool->push(Manager::class, new Manager(1));
-
-        $this->assertEquals(2, count($pool->getInstance()));
-    }
-
-    /** @test */
-    function it_only_has_one_same_object_in_pool_three()
-    {
-        $pool = new Pool();
-
-        $pool->get(Worker::class);
-        $pool->get(Manager::class);
-        $pool->get(Customer::class);
-
-        $pool->get(Customer::class);
-
-        $this->assertEquals(3, count($pool->getInstance()));
+        $this->assertSame($worker1, $worker2);
     }
 }
