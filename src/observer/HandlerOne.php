@@ -3,7 +3,6 @@
 
 namespace Duc\Observer;
 
-
 use SplObserver;
 use SplSubject;
 
@@ -25,5 +24,4 @@ class HandlerOne implements SplObserver
     {
         echo 'one handing...';
     }
-
 }

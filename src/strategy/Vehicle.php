@@ -3,7 +3,6 @@
 
 namespace Duc\Strategy;
 
-
 class Vehicle
 {
     protected $tool;

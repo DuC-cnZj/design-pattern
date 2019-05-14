@@ -3,7 +3,6 @@
 
 namespace Duc\DI;
 
-
 /**
  * $this->book = new BadBook(); 形成了依赖。
  * 将来人想做什么都只能限制在 BadBook 类的方法里面。

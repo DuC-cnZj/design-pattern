@@ -3,7 +3,6 @@
 
 namespace Duc\StaticFactory;
 
-
 interface FruitImp
 {
     /**

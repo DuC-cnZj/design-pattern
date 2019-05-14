@@ -7,9 +7,9 @@ use PHPUnit\Framework\TestCase;
 class ProxyTest extends TestCase
 {
     /** @test */
-    function proxy_test()
+    public function proxy_test()
     {
-        $p = new RunProxy();
+        $p = new RunProxy(new Run());
 
         $this->assertContains('do sth...', $p->running());
     }

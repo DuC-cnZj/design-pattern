@@ -2,7 +2,7 @@
 
 namespace Duc\Proxy;
 
-class Run
+class Run implements RunImp
 {
     public function running()
     {

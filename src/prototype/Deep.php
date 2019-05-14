@@ -3,7 +3,6 @@
 
 namespace Duc\Prototype;
 
-
 class Deep
 {
     public $name;

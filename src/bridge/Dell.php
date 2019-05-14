@@ -2,7 +2,7 @@
 
 namespace Duc\Bridge;
 
-class Dell extends Composer
+class Dell extends Computer
 {
     public function connectPhone()
     {

@@ -3,7 +3,6 @@
 
 namespace Duc\Facade;
 
-
 interface OsInterface
 {
     public function getName();

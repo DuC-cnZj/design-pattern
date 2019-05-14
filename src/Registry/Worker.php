@@ -3,7 +3,6 @@
 
 namespace Duc\Registry;
 
-
 class Worker implements UserImp
 {
     public $id;

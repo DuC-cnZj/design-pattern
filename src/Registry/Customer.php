@@ -3,7 +3,6 @@
 
 namespace Duc\Registry;
 
-
 class Customer implements UserImp
 {
     public $id;

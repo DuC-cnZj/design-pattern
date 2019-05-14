@@ -2,7 +2,7 @@
 
 namespace Duc\Bridge;
 
-abstract class Composer implements ComputerImp
+abstract class Computer implements ComputerImp
 {
     /**
      * @var PhoneImp

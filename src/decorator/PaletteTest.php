@@ -3,14 +3,13 @@
 
 namespace Duc\Decorator;
 
-
 use PHPUnit\Framework\TestCase;
 
 class PaletteTest extends TestCase
 {
 
     /** @test */
-    function palette_test()
+    public function palette_test()
     {
         $palette = new Palette();
 

@@ -3,7 +3,6 @@
 
 namespace Duc\Registry;
 
-
 class Manager implements UserImp
 {
     public $id;

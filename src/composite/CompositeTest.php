@@ -1,15 +1,13 @@
 <?php
 
-
 namespace Duc\Composite;
-
 
 use PHPUnit\Framework\TestCase;
 
 class CompositeTest extends TestCase
 {
     /** @test */
-    function test_composite()
+    public function test_composite()
     {
         $form = new Form();
 

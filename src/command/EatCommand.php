@@ -3,10 +3,8 @@
 
 namespace Duc\Command;
 
-
 class EatCommand implements CommandImp
 {
-
     protected $food;
 
     public function __construct($food)

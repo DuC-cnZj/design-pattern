@@ -3,10 +3,8 @@
 
 namespace Duc\Builder;
 
-
 class BlueBird extends Bird implements BuilderInterface
 {
-
     public function buildHead()
     {
         $this->setPart('head', 'blue head');

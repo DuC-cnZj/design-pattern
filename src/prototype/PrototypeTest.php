@@ -3,13 +3,12 @@
 
 namespace Duc\Prototype;
 
-
 use PHPUnit\Framework\TestCase;
 
 class PrototypeTest extends TestCase
 {
     /** @test */
-    function test_prototype()
+    public function test_prototype()
     {
         $p = new Prototype();
         $p->name = 'duc';
@@ -23,7 +22,7 @@ class PrototypeTest extends TestCase
     }
 
     /** @test */
-    function test_deep_clone()
+    public function test_deep_clone()
     {
         $p = new Deep();
         $p->name = 'duc';

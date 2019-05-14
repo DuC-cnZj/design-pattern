@@ -52,7 +52,7 @@ class Observer implements SplSubject
      * @return void
      * @since 5.1.0
      */
-    public function notify ()
+    public function notify()
     {
         foreach ($this->observers as $observer) {
             $observer->update($this);

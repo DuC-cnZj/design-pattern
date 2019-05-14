@@ -3,7 +3,6 @@
 
 namespace Duc\Builder;
 
-
 abstract class Bird
 {
     protected $parts = [];

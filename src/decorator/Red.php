@@ -3,7 +3,6 @@
 
 namespace Duc\Decorator;
 
-
 class Red implements PaletteImp
 {
     protected $palette;

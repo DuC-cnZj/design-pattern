@@ -3,10 +3,8 @@
 
 namespace Duc\Adapter;
 
-
 class ThirdBook implements ThirdBookImp
 {
-
     public function turnOn()
     {
         return 'turnOn';

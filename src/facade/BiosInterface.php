@@ -3,10 +3,8 @@
 
 namespace Duc\Facade;
 
-
 interface BiosInterface
 {
-
     public function execute();
 
     public function waitForKeyPress();

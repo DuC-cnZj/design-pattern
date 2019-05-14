@@ -3,13 +3,12 @@
 
 namespace Duc\Command;
 
-
 use PHPUnit\Framework\TestCase;
 
 class CommandTest extends TestCase
 {
     /** @test */
-    function command_test()
+    public function command_test()
     {
         $invoker = new Invoker();
         $hello = $this->createMock(HelloWorldCommand::class);

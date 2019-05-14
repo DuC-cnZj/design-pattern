@@ -3,13 +3,12 @@
 
 namespace Duc\Strategy;
 
-
 use PHPUnit\Framework\TestCase;
 
 class StrategyTest extends TestCase
 {
     /** @test */
-    function strategy_test()
+    public function strategy_test()
     {
         $bike = new Bike();
         $vehicle = new Vehicle($bike);

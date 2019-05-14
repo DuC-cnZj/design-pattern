@@ -2,7 +2,7 @@
 
 namespace Duc\Bridge;
 
-class MacBook extends Composer
+class MacBook extends Computer
 {
     public function connectPhone()
     {

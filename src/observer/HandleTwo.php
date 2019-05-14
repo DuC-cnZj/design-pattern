@@ -3,7 +3,6 @@
 
 namespace Duc\Observer;
 
-
 use SplObserver;
 use SplSubject;
 

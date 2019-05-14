@@ -3,10 +3,8 @@
 
 namespace Duc\NullObject;
 
-
 class Info
 {
-
     protected $userId;
 
     public function __construct(int $userId)

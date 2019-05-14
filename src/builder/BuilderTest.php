@@ -18,10 +18,11 @@ class BuilderTest extends TestCase
         $this->assertEquals(
             $parts,
             [
-            'head' => 'blue head',
-            'wing' => 'blue wing',
-            'foot' => 'blue foot',
-        ]);
+                'head' => 'blue head',
+                'wing' => 'blue wing',
+                'foot' => 'blue foot',
+            ]
+        );
     }
 
     /** @test */
@@ -36,9 +37,10 @@ class BuilderTest extends TestCase
         $this->assertEquals(
             $parts,
             [
-            'head' => 'red head',
-            'wing' => 'red wing',
-            'foot' => 'red foot',
-        ]);
+                'head' => 'red head',
+                'wing' => 'red wing',
+                'foot' => 'red foot',
+            ]
+        );
     }
 }

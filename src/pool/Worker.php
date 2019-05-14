@@ -3,7 +3,6 @@
 
 namespace Duc\Pool;
 
-
 class Worker implements UserImp
 {
     public $id;

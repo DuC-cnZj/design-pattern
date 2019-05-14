@@ -6,17 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 class RegistryTest extends TestCase
 {
-    protected function setUp(
-    )/* The :void return type declaration that should be here would cause a BC issue */
-    {
-        parent::setUp();
-        Registry::clearInstance();
-
-        /** @var SingletonRegistry $registry */
-        $registry = SingletonRegistry::getInstance();
-        $registry->clearInstance();
-    }
-
     /** @test */
     public function registry_test()
     {
@@ -31,12 +20,13 @@ class RegistryTest extends TestCase
         $this->assertSame($worker1, $worker);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function test_duc()
     {
-        // 会造成测试中引入全局的状态，测试时必须在 setUp 中清空一下注册树
-//        $this->assertEquals(3, count(Registry::getInstance()));
-
         $this->assertEquals(0, count(Registry::getInstance()));
     }
 
@@ -78,8 +68,12 @@ class RegistryTest extends TestCase
         $registry->get('duc');
     }
 
-    /** @test */
-    function duc_test()
+    /**
+     * @test
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function duc_test()
     {
         /** @var SingletonRegistry $registry */
         $registry = SingletonRegistry::getInstance();

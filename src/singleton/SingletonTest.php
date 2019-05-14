@@ -3,13 +3,12 @@
 
 namespace Duc\Singleton;
 
-
 use PHPUnit\Framework\TestCase;
 
 class SingletonTest extends TestCase
 {
     /** @test */
-    function it_has_one_instance()
+    public function it_has_one_instance()
     {
         $instance = Singleton::getInstance();
         $instanceTwo = Singleton::getInstance();
@@ -20,7 +19,7 @@ class SingletonTest extends TestCase
     }
 
     /** @test */
-    function it_can_not_clone()
+    public function it_can_not_clone()
     {
         $this->expectExceptionMessage('can not clone');
 

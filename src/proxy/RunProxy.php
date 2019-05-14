@@ -2,13 +2,13 @@
 
 namespace Duc\Proxy;
 
-class RunProxy
+class RunProxy implements RunImp
 {
     protected $run;
 
-    public function __construct()
+    public function __construct(RunImp $run)
     {
-        $this->run = new Run();
+        $this->run = $run;
     }
 
     public function running()

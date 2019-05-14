@@ -3,7 +3,6 @@
 
 namespace Duc\Builder;
 
-
 interface BuilderInterface
 {
     public function buildHead();

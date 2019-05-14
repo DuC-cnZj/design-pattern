@@ -3,7 +3,6 @@
 
 namespace Duc\NullObject;
 
-
 class NullInfo
 {
     protected $userId = null;
